@@ -18,11 +18,8 @@ namespace DBHandler
         {
             SQLServerAccessor accessor = new SQLServerAccessor();
 
-            string tsvfilepath = "C:\\WS\\OfficialAccountBotExtension\\Hackthon\\TABot\\DBSourceData\\Calculator3.tsv";
-
-            string csvfilepath = "C:\\WS\\OfficialAccountBotExtension\\Hackthon\\TABot\\DBSourceData\\PSAScheduleData2.csv";
-            // "C:\\WS\\OfficialAccountBotExtension\\Hackthon\\TABot\\DBSourceData\\PSANotificationData.csv";
-            // "C:\\WS\\OfficialAccountBotExtension\\Hackthon\\TABot\\DBSourceData\\PSAESCachedObject.csv";
+            string tsvfilepath = "C:\\github\\TABot\\DBSourceData\\Calculator3.tsv";
+            string csvfilepath = "C:\\github\\TABot\\DBSourceData\\PSAScheduleData2.csv";           
 
             CSVParser parser = new CSVParser(csvfilepath);
             //TSVParser parser = new TSVParser(tsvfilepath);
