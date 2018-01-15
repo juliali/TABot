@@ -1,0 +1,5 @@
+﻿数学	CourseName
+算术	CourseName	数学
+算数	CourseName	数学
+外语	CourseName	英语
+英语	CourseName

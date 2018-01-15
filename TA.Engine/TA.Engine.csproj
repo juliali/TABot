@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80B51B5D-D4FA-425D-9E9A-D4E35DEB5128}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PSAssitant.Engine</RootNamespace>
+    <AssemblyName>TA.Engine</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net-2.0.8\bin\net\4.5\release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\Component\IContextManager.cs" />
+    <Compile Include="Controllers\Component\MemContextManager.cs" />
+    <Compile Include="Data\ExamSuitContext.cs" />
+    <Compile Include="Services\DICSExamSrv.cs" />
+    <Compile Include="Common\RuleTextStore.cs" />
+    <Compile Include="Common\ContextStore.cs" />
+    <Compile Include="Controllers\Component\DBContextManager.cs" />
+    <Compile Include="Controllers\DialogController.cs" />
+    <Compile Include="Data\ContentType.cs" />
+    <Compile Include="Data\DISCInfo.cs" />
+    <Compile Include="Data\ExamLUInfo.cs" />
+    <Compile Include="Engines\ChatTableEngine.cs" />
+    <Compile Include="Engines\TestEngine.cs" />
+    <Compile Include="Services\CalculatorSrv.cs" />
+    <Compile Include="Services\ChitchatSrv.cs" />
+    <Compile Include="Controllers\IntentController.cs" />
+    <Compile Include="Services\IntentSrv.cs" />
+    <Compile Include="Services\NotificationQuerySrv.cs" />
+    <Compile Include="Services\ScheduleQuerySrv.cs" />
+    <Compile Include="Data\BotContext.cs" />
+    <Compile Include="Data\ConfigurationData.cs" />
+    <Compile Include="Data\ContextInfo.cs" />
+    <Compile Include="Data\PSAContext.cs" />
+    <Compile Include="Data\TaskFlowContext.cs" />
+    <Compile Include="Data\TestItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DBChecker\TADBChecker.cs" />
+    <Compile Include="Utils\Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBHandler\DBHandler.csproj">
+      <Project>{e644238e-0f20-430c-9195-8af4cef1d650}</Project>
+      <Name>DBHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bot.Common\Bot.Common.csproj">
+      <Project>{f9ae7f3c-50f7-428b-97f5-b49831d20029}</Project>
+      <Name>Bot.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="Res\dicsTest.json" />
+    <EmbeddedResource Include="Res\dics.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\Task\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Res\EntityRules.txt" />
+    <EmbeddedResource Include="Res\ETLRules.txt" />
+    <EmbeddedResource Include="Res\IntentRules.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
