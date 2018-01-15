@@ -11,7 +11,7 @@ namespace DBHandler.DBAccess
 {
     public class SQLServerAccessor
     {
-        private const string connectionString = "Server=tcp:juliatest.database.windows.net,1433;Initial Catalog=PSADB;Persist Security Info=False;User ID=JuliaLi;Password=Azure20090303;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private const string connectionString = "$CONNECTION_STRING";
         public const string VARBINARYSTR = "@VarBinary";
         private SqlConnection conn;
 
